@@ -11,6 +11,7 @@
           --bg-main-color: #000000;
           --bg-secondary-color: #333333;
           --fg-main-color: #d0cabd;
+          --fg-main-color-50: #d0cabd66;
           --fg-darker-color: #a69a8d;
           font-family: "owners text";
           display: flex;
@@ -28,6 +29,11 @@
           gap: 2em;
           align-items: center;
           padding-bottom: 2em;
+        }
+        img.logo {
+          /* border: solid 4px var(--fg-main-color-50);
+          border-radius: 10px;
+          /* mask-image: radial-gradient(circle at 50% 20%, rgba(0,0,0,1), rgba(0,0,0,0)); */
         }
         .columns {
           display: flex;
@@ -134,7 +140,7 @@
     <div class="main">
       <div class="header">
        <div class="logo-container" style="display: flex; flex-direction: column; align-items: center">
-         <img src="./logo_no_background.png" style="height: 250px; width: 250px;"/>
+         <img class="logo" src="./logo_no_background.png" style="height: 250px; width: 250px;"/>
        </div>
       </div>
       <div class="columns">
