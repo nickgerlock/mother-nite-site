@@ -133,9 +133,11 @@
       color: var(--fg-main-color);
     }
 
-    .link:hover {
-      background-color: rgb(100, 100, 100, 0.5);
-      color: var(--fg-main-brighter);
+    @media (hover: hover) {
+      .link:hover {
+        background-color: rgb(100, 100, 100, 0.5);
+        color: var(--fg-main-brighter);
+      }
     }
 
     .link-icon {
@@ -164,9 +166,11 @@
       cursor: pointer;
     }
 
-    button.copy:hover {
-      background-color: rgb(100, 100, 100, 0.5);
-      color: var(--fg-main-brighter);
+    @media (hover: hover) {
+      button.copy:hover {
+        background-color: rgb(100, 100, 100, 0.5);
+        color: var(--fg-main-brighter);
+      }
     }
 
     .email-copied-text {
