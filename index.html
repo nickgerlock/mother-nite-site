@@ -21,6 +21,7 @@
       --fg-main-brighter: #f0eadd;
       --fg-main-color-50: #d0cabd66;
       --fg-darker-color: #a69a8d;
+      --highlight-color: #c2982d;
       font-family: "owners text";
       display: flex;
       justify-content: center;
@@ -135,7 +136,14 @@
     }
 
     .contact-info a {
-      color: var(--fg-main-color);
+      color: var(--highlight-color);
+      text-decoration: none;
+    }
+
+    @media (hover: hover) {
+      .contact-info:hover a {
+        text-decoration: underline;
+      }
     }
 
     @media (hover: hover) {
