@@ -1,0 +1,21 @@
+ {
+  "name": "MotherNite",
+  "short_name": "MotherNite",
+  "icons": [
+    {
+      "src": "/images/favicons/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/favicons/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#c2982d",
+  "background_color": "#000000",
+  "display": "standalone"
+}
