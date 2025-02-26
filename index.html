@@ -203,7 +203,7 @@
       cursor: pointer;
     }
 
-    dialog.subscribe-modal[open=""] {
+    dialog[open=""] {
       box-sizing: border-box;
       display: flex;
       flex-direction: column;
@@ -212,6 +212,27 @@
       border: solid 1px var(--fg-darker-color);
       border-radius: 10px;
       max-width: min(800px, calc(100% - 32px));
+
+      opacity: 1;
+      transform: scaleY(1);
+    }
+
+    dialog {
+      opacity: 0;
+      /* transition: display ease 1s; */
+      transition:
+        opacity 0.5s ease-out,
+        transform 0.5s ease-out,
+        overlay 0.5s ease-out allow-discrete,
+        display 0.5s ease-out allow-discrete;
+      /* Equivalent to
+      transition: all 0.7s allow-discrete; */
+    }
+
+    @starting-style {
+      dialog.subscribe-modal[open=""] {
+        opacity: 0;
+      }
     }
 
     .modal-header-group {
@@ -546,56 +567,58 @@
       </div>
     </div>
 
-    <dialog class="subscribe-modal">
-      <div class="modal-header-group">
-        <div class="spacer"></div>
-    
-        <h2 class="modal-header">Mother Nite Fan Club</h2>
-    
-        <button class="text-button close">
-          <!-- <img class="button-icon" src="./images/icons/x-symbol-svgrepo-com.svg"> -->
-          Close
-        </button>
-      </div>
-    
-      <div class="modal-body">
-        <p>
-          Your curiosity has earned you an invitation to the Mother Nite Fan Club. Enter your email below and we'll send you updates about new releases, shows, etc.
-          This will connect us directly as kindered spirits and free us from the algorithmic whims of other social media
-          platforms.
-        </p>
-    
-        <div class="email-signup" id="mc_embed_shell">
-          <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css"> -->
-          <div class="email-signup-content" id="mc_embed_signup">
-            <form
-              action="https://mothernite.us10.list-manage.com/subscribe/post?u=7d76e55679aabe8ae42308247&amp;id=1baa01a357&amp;f_id=001c44e4f0"
-              method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
-              target="_blank">
-              <div class="email-signup-scroll" id="mc_embed_signup_scroll">
-                <div class="fine-print"><span class="asterisk">*</span> indicates required</div>
-                <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span
-                      class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email"
-                    id="mce-EMAIL" required="" value=""></div>
-                <div id="mce-responses" class="clear foot">
-                  <div class="response" id="mce-error-response" style="display: none;"></div>
-                  <div class="response" id="mce-success-response" style="display: none;"></div>
-                </div>
-                <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                  /* real people should not fill this in and expect good things - do not remove this or risk form bot
-                  signups */
-                  <input type="text" name="b_7d76e55679aabe8ae42308247_1baa01a357" tabindex="-1" value="">
-                </div>
-                <div class="optionalParent">
-                  <div class="clear foot">
-                    <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+    <div class="modal-root">
+      <dialog class="subscribe-modal">
+        <div class="modal-header-group">
+          <div class="spacer"></div>
+      
+          <h2 class="modal-header">Mother Nite Fan Club</h2>
+      
+          <button class="text-button close">
+            <!-- <img class="button-icon" src="./images/icons/x-symbol-svgrepo-com.svg"> -->
+            Close
+          </button>
+        </div>
+      
+        <div class="modal-body">
+          <p>
+            Your curiosity has earned you an invitation to the Mother Nite Fan Club. Enter your email below and we'll send you updates about new releases, shows, etc.
+            This will connect us directly as kindered spirits and free us from the algorithmic whims of other social media
+            platforms.
+          </p>
+      
+          <div class="email-signup" id="mc_embed_shell">
+            <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css"> -->
+            <div class="email-signup-content" id="mc_embed_signup">
+              <form
+                action="https://mothernite.us10.list-manage.com/subscribe/post?u=7d76e55679aabe8ae42308247&amp;id=1baa01a357&amp;f_id=001c44e4f0"
+                method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate"
+                target="_blank">
+                <div class="email-signup-scroll" id="mc_embed_signup_scroll">
+                  <div class="fine-print"><span class="asterisk">*</span> indicates required</div>
+                  <div class="mc-field-group"><label for="mce-EMAIL">Email Address <span
+                        class="asterisk">*</span></label><input type="email" name="EMAIL" class="required email"
+                      id="mce-EMAIL" required="" value=""></div>
+                  <div id="mce-responses" class="clear foot">
+                    <div class="response" id="mce-error-response" style="display: none;"></div>
+                    <div class="response" id="mce-success-response" style="display: none;"></div>
+                  </div>
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true">
+                    /* real people should not fill this in and expect good things - do not remove this or risk form bot
+                    signups */
+                    <input type="text" name="b_7d76e55679aabe8ae42308247_1baa01a357" tabindex="-1" value="">
+                  </div>
+                  <div class="optionalParent">
+                    <div class="clear foot">
+                      <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="Subscribe">
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
-        </div>
-    </dialog>
+      </dialog>
+    </div>
   </div>
 
   <script>
@@ -635,6 +658,11 @@
     // Handle subscribe modal close button
     const subscribeModalCloseButton = document.querySelector("dialog.subscribe-modal button.close");
     subscribeModalCloseButton.addEventListener("click", async (e) => {
+      subscribeModal.close();
+    });
+
+    // Handle clicking outside modal to close
+    subscribeModal.addEventListener("click", async (e) => {
       subscribeModal.close();
     });
 
