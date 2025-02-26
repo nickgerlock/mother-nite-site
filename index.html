@@ -32,12 +32,17 @@
       --highlight-brighter: #ffc739;
 
       font-family: "owners text";
+      /* font-family: 'Courier New', Courier, monospace; */
       display: flex;
       justify-content: center;
       background: linear-gradient(var(--bg-secondary-color), var(--bg-main-color));
       min-height: 100vh;
       color: var(--fg-main-color);
       margin: 0px;
+    }
+
+    span {
+      /* font-family: 'Courier New', Courier, monospace; */
     }
 
     .main {
@@ -227,6 +232,17 @@
         display 0.5s ease-out allow-discrete;
       /* Equivalent to
       transition: all 0.7s allow-discrete; */
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    @media (max-width:600px)  { 
+      dialog p {
+        font-size: small;
+      }
+
+      dialog h2 {
+        font-size: large;
+      }
     }
 
     @starting-style {
@@ -243,8 +259,6 @@
       padding-left: 12px;
       padding-right: 12px;
       padding-bottom: 12px;
-
-      text-align: justify;
     }
 
     dialog.subscribe-modal .spacer {
@@ -360,6 +374,16 @@
       flex-direction: column;
       gap: 2px;
       max-width: min(400px, calc(80% - 32px));
+    }
+
+    .mce_inline_error {
+      font-size: small;
+    }
+
+    @media (max-width:600px)  { 
+      .mce_inline_error {
+        font-size: smaller;
+      }
     }
 
     input[type=email], input[type=text] {
