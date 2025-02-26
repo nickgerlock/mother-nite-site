@@ -219,7 +219,11 @@
     }
 
     .modal-body {
-      padding: 12px;
+      padding-left: 12px;
+      padding-right: 12px;
+      padding-bottom: 12px;
+
+      text-align: justify;
     }
 
     dialog.subscribe-modal .spacer {
@@ -334,9 +338,11 @@
       display: flex;
       flex-direction: column;
       gap: 2px;
+      max-width: 400px;
     }
 
     input[type=email], input[type=text] {
+      max-width: 400px;
       background-color: transparent;
       color: var(--fg-main-color);
       border: 1px solid var(--fg-main-color);
@@ -445,16 +451,15 @@
           <div class="divider"></div>
         </div>
 
-        <!-- TODO: enable this after sorting out mailchimp stuff -->
-        <!-- <button class="link open-modal">
+        <button class="link open-modal">
           <div class="link-content">
             <img class="link-icon" src="./images/icons/mail.svg">
             <span class="link-text">
-              Fan Club
+              Secret (do not click)
             </span>
             <div class="link-padding"></div>
           </div>
-        </button> -->
+        </button>
         
         <a class="link" target="_blank" href="https://www.instagram.com/nickgerlock/">
           <div class="link-content">
@@ -469,7 +474,7 @@
           <div class="link-content">
             <img class="link-icon" src="./images/icons/twitter_logo.svg">
             <span class="link-text">
-              Twitter <span class="small-text">(warning: dumb)</span>
+              Twitter
             </span>
             <div class="link-padding"></div>
           </div>
@@ -547,13 +552,13 @@
     
       <div class="modal-body">
         <p>
-          Enter your email to join the Mother Nite Fan Club. We'll send you updates about new releases, shows, and more.
+          Your curiosity has earned you an invitation to the Mother Nite Fan Club. Enter your email below and we'll send you updates about new releases, shows, etc.
           This will connect us directly as kindered spirits and free us from the algorithmic whims of other social media
           platforms.
         </p>
     
         <div class="email-signup" id="mc_embed_shell">
-          <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+          <!-- <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css"> -->
           <div class="email-signup-content" id="mc_embed_signup">
             <form
               action="https://mothernite.us10.list-manage.com/subscribe/post?u=7d76e55679aabe8ae42308247&amp;id=1baa01a357&amp;f_id=001c44e4f0"
@@ -625,6 +630,11 @@
       subscribeModal.close();
     });
 
+  </script>
+
+  <script type="text/javascript" src="https://s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">
+  (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';fnames[6]='COMPANY';ftypes[6]='text';}(jQuery));var $mcj = jQuery.noConflict(true);
   </script>
 </body>
 
