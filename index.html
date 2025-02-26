@@ -663,7 +663,9 @@
 
     // Handle clicking outside modal to close
     subscribeModal.addEventListener("click", async (e) => {
-      subscribeModal.close();
+      if (e.target === subscribeModal) {
+        subscribeModal.close();
+      }
     });
 
   </script>
